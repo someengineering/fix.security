@@ -31,7 +31,7 @@ export function middleware(request: NextRequest) {
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic';
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data:;
-    media-src 'self' https://media.transistor.fm;
+    media-src 'self' https://media.transistor.fm https://audio.transistor.fm;
     frame-src 'self' https://www.google.com https://recaptcha.google.com;
     font-src 'self';
     object-src 'none';
