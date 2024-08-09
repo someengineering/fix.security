@@ -1,0 +1,102 @@
+/* Branding on the banner */
+a#CybotCookiebotDialogPoweredbyCybot,
+div#CybotCookiebotDialogPoweredByText {
+  display: none;
+}
+
+/* Branding on the Privacy trigger */
+#CookiebotWidget .CookiebotWidget-body .CookiebotWidget-main-logo {
+  display: none;
+}
+
+#CybotCookiebotDialog {
+  border-radius: 0 !important;
+  border: 7px solid var(--color-primary--light) !important;
+  top: auto !important;
+  bottom: 0 !important;
+  transform: translate(-50%, -10px) !important;
+
+  .CybotCookiebotDialogContentWrapper {
+    @apply max-w-screen-xl !important;
+    @apply items-center !important;
+
+    #CybotCookiebotDialogBodyUnderlay {
+      * {
+        @apply text-sm !important;
+      }
+    }
+
+    #CybotCookiebotDialogBodyContent {
+      #CybotCookiebotDialogBodyContentTitle {
+        display: none !important;
+      }
+    }
+
+    .CybotCookiebotDialogBodyBottomWrapper {
+      display: none !important;
+    }
+  }
+}
+
+#CybotCookiebotDialogFooter {
+  .CybotCookiebotDialogBodyButton {
+    font-family: __Plus_Jakarta_Sans_e3c363, __Plus_Jakarta_Sans_Fallback_e3c363,
+      ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
+    display: inline-block !important;
+    width: auto !important;
+    @apply inline-flex items-center whitespace-nowrap rounded-md border border-cornflower-blue-700 px-4 py-2 text-base font-bold transition-colors duration-75 hover:opacity-100 focus:outline-none focus-visible:ring focus-visible:ring-cornflower-blue-500 disabled:cursor-not-allowed disabled:bg-cornflower-blue-600 disabled:opacity-50 !important;
+  }
+
+  #CybotCookiebotDialogBodyButtonDecline,
+  #CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+    @apply bg-cornflower-blue-600 text-white hover:bg-cornflower-blue-700 hover:text-white active:border-cornflower-blue-800 active:bg-cornflower-blue-800 disabled:border-cornflower-blue-600 !important;
+  }
+
+  #CybotCookiebotDialogBodyLevelButtonCustomize {
+    @apply mb-0 border border-transparent text-cornflower-blue-600 hover:border-cornflower-blue-600 focus:outline-none focus-visible:ring focus-visible:ring-cornflower-blue-500 active:border-cornflower-blue-700 disabled:opacity-50 !important;
+  }
+}
+
+#CybotCookiebotDialog.CybotEdge #CybotCookiebotDialogFooter {
+  #CybotCookiebotDialogBodyButtonsWrapper {
+    @apply gap-x-2 !important;
+
+    @media screen and (min-width: 600px) {
+      @apply flex-row-reverse !important;
+    }
+  }
+
+  .CybotCookiebotDialogBodyButton:not(:first-of-type) {
+    @media screen and (min-width: 600px) {
+      @apply mb-0 !important;
+    }
+  }
+}
+
+CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll {
+  border: none !important;
+}
+
+#CybotCookiebotDialog #CybotCookiebotDialogFooter .CybotCookiebotDialogHide {
+  display: none !important;
+}
+
+#CybotCookiebotDialogPoweredByText {
+  display: none !important;
+}
+
+#CybotCookiebotDialogNav .CybotCookiebotDialogNavItemLink {
+  padding: 1.8em 1em 1em 1em !important;
+}
+
+#CybotCookiebotDialog .CybotCookiebotScrollContainer,
+#CybotCookiebotDialog #CybotCookiebotDialogBody .CybotCookiebotScrollContainer,
+#CybotCookiebotDialogNav,
+#CybotCookiebotDialogHeader {
+  border: none !important;
+}
+
+#CybotCookiebotDialogHeader {
+  display: none !important;
+}

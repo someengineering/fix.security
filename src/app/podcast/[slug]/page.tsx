@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import { notFound, permanentRedirect } from 'next/navigation';
 
-import { metadata as rootMetadata } from '@/app/layout';
 import PodcastEpisode from '@/components/podcast/PodcastEpisode';
 import { siteConfig } from '@/constants/config';
 import { getUser } from '@/lib/hashnode';
 import { getAllEpisodeSlugs, getEpisode } from '@/lib/transistor';
 import { openGraph } from '@/utils/og';
 import { parseEpisodeTitle } from '@/utils/transistor';
+
+import { metadata as rootMetadata } from '../../metadata';
 
 export async function generateStaticParams() {
   const slugs = await getAllEpisodeSlugs();

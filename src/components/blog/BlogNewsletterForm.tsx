@@ -89,7 +89,7 @@ export default function BlogNewsletterForm({ nonce }: { nonce?: string }) {
                   }
 
                   posthog.capture('subscribed to Hashnode newsletter', {
-                    $current_url: `${window.origin}${pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`,
+                    $current_url: `${window.origin}${pathname}${searchParams ? (searchParams.toString() ? `?${searchParams.toString()}` : '') : ''}`,
                     $set: { email: data.email },
                   });
                 } catch (e) {

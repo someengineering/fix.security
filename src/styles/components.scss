@@ -1,0 +1,100 @@
+/* HERO */
+section.hero {
+  .header-text-block {
+    &__introduction {
+      @apply mx-auto;
+      p {
+        @apply sm:text-xl lg:text-pretty;
+      }
+
+      ul {
+        @apply max-w-prose text-balance;
+        p {
+          @apply text-gray-600 sm:text-lg;
+        }
+      }
+    }
+  }
+}
+
+/* COMPARE */
+section {
+  .compare {
+    &__introduction {
+      @apply mt-6 text-lg leading-8 text-gray-600;
+    }
+  }
+
+  .section--centered-text {
+    .compare {
+      &__pictures {
+        @apply justify-center;
+      }
+
+      &__introduction {
+        @apply mx-auto max-w-prose text-center;
+      }
+    }
+  }
+}
+
+/* MOTIVATION */
+section {
+  .motivation {
+    &__header {
+      @apply flex flex-col;
+    }
+  }
+
+  .section--centered-text {
+    .motivation {
+      &__header {
+        @apply items-center justify-center;
+      }
+
+      &__text {
+        @apply mx-auto max-w-prose text-center;
+      }
+    }
+  }
+}
+
+/* HEADER TEXT BLOCK */
+section {
+  .header-text-block__introduction {
+    @apply text-lg leading-8 text-gray-600;
+
+    h2,
+    h3,
+    h4 {
+      @apply mt-12 text-xl font-bold text-gray-900 sm:text-2xl;
+    }
+
+    p {
+      @apply mt-6 text-gray-600;
+      b {
+        @apply font-semibold text-gray-900;
+      }
+    }
+
+    ul {
+      @apply mx-auto ml-0 mt-3 list-inside list-disc text-gray-600 lg:text-pretty;
+      p {
+        @apply mt-0 inline;
+      }
+    }
+  }
+}
+
+section .header-text-block__introduction ul li p {
+  @apply mt-2;
+}
+
+section .header-text-block__introduction p a,
+section .header-text-block__introduction p a b {
+  @apply font-semibold text-cornflower-blue-500 hover:text-cornflower-blue-600 focus:outline-none focus-visible:rounded focus-visible:ring focus-visible:ring-cornflower-blue-500 focus-visible:ring-offset-2 active:text-cornflower-blue-700 disabled:text-cornflower-blue-200;
+}
+
+section .section--centered-text .header-text-block__introduction {
+  @apply mx-auto text-center;
+}

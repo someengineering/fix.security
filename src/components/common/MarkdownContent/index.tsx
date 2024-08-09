@@ -3,6 +3,8 @@ import GithubSlugger from 'github-slugger';
 import Image from 'next/image';
 import React, { isValidElement } from 'react';
 import Markdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { ghcolors } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
 import remarkSmartypants from 'remark-smartypants';
@@ -34,7 +36,7 @@ export default function MarkdownContent({
   return (
     <Markdown
       rehypePlugins={[rehypeRaw]}
-      remarkPlugins={[remarkSmartypants, remarkGfm]}
+      remarkPlugins={[remarkGfm, remarkSmartypants]}
       components={{
         a: (props) => (
           <PrimaryLink href={props.href ?? ''}>{props.children}</PrimaryLink>
@@ -100,8 +102,34 @@ export default function MarkdownContent({
             ) : null}
           </figure>
         ),
+        code: (props) => {
+          const match = /language-(?<language>\w+)/.exec(props.className || '');
+          return match ? (
+            <SyntaxHighlighter
+              PreTag="div"
+              language={match?.groups?.language}
+              style={ghcolors}
+              customStyle={{
+                color: 'inherit',
+                fontFamily: 'inherit',
+                fontSize: 'inherit',
+                lineHeight: 'inherit',
+                background: 'none',
+                border: 0,
+                margin: '-1rem',
+                padding: '1rem',
+                borderRadius: '1rem',
+              }}
+              codeTagProps={{ style: {} }}
+            >
+              {String(props.children)}
+            </SyntaxHighlighter>
+          ) : (
+            <code className={props.className}>{props.children}</code>
+          );
+        },
         p: (props) => {
-          if (props.children?.toString() === '%%[cta]') {
+          if (String(props.children) === '%%[cta]') {
             return (
               <div className="my-12 space-x-5">
                 <ButtonLink href={siteConfig.registerUrl} size="lg">
@@ -111,9 +139,9 @@ export default function MarkdownContent({
             );
           }
 
-          const icon = props.children
-            ?.toString()
-            .match(/^%%\[icon-(?<iconName>\w+)]$/);
+          const icon = String(props.children).match(
+            /^%%\[icon-(?<iconName>\w+)]$/,
+          );
 
           if (icon?.groups?.iconName) {
             return (
@@ -127,9 +155,9 @@ export default function MarkdownContent({
             );
           }
 
-          const youtubeEmbed = props.children
-            ?.toString()
-            .match(/^%\[https:\/\/youtu\.be\/(?<videoId>[\w\d\-_]{11})]$/);
+          const youtubeEmbed = String(props.children).match(
+            /^::youtube\[(?<videoId>[\w\d\-_]{11})]$/,
+          );
 
           if (youtubeEmbed?.groups?.videoId) {
             return (

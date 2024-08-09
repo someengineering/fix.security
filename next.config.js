@@ -18,6 +18,7 @@ module.exports = withPlausibleProxy()({
       { protocol: 'https', hostname: 'cdn.hashnode.com' },
       { protocol: 'https', hostname: 'i.scdn.co' },
       { protocol: 'https', hostname: 'img.transistor.fm' },
+      { protocol: 'https', hostname: 'a.storyblok.com' },
     ],
   },
 

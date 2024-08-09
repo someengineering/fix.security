@@ -27,7 +27,11 @@ export const sanitizeMarkdown = (markdown: string): string => {
   return markdown
     .replace(/\s+align="\w+"/g, '')
     .replace(/]\(https?:\/\/(www\.)?fix\.(security|tt)\/?/g, '](/')
-    .replace(/]\(https?:\/\/blog\.fix\.(security|tt)\/?/g, '](/blog/');
+    .replace(/]\(https?:\/\/blog\.fix\.(security|tt)\/?/g, '](/blog/')
+    .replace(
+      /%\[https:\/\/youtu\.be\/(?<videoId>[\w\d\-_]{11})]/g,
+      '::youtube[$<videoId>]',
+    );
 };
 
 export const getText = (element: React.ReactNode): string => {

@@ -13,7 +13,7 @@
     "typescriptreact"
   ],
   "files.associations": {
-    "globals.css": "tailwindcss"
+    "globals.scss": "tailwindcss"
   },
   "tailwindCSS.classAttributes": [
     "class",
