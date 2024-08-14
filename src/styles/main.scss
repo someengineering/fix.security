@@ -1,0 +1,10 @@
+@charset "UTF-8";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// IMPORT START
+@import 'globals';
+@import 'components';
+@import 'cookiebot';
+// IMPORT END

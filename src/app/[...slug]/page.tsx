@@ -21,19 +21,24 @@ async function fetchData(
   return await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  const story = await fetchData('home', 'published');
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string[] };
+}): Promise<Metadata> {
+  const story = await fetchData(params.slug.join('/'), 'published');
 
   return generateMetadataFromStory(story, false);
 }
 
 export default async function Page({
+  params,
   searchParams,
 }: {
   params: { slug: string[] };
   searchParams: { _storyblok?: string };
 }) {
-  const slugPath = 'home';
+  const slugPath = params.slug.join('/');
   let data;
   try {
     const version = searchParams._storyblok ? 'draft' : 'published';

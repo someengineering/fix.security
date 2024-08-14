@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 
-import { metadata as rootMetadata } from '@/app/layout';
 import ListenAnywhere from '@/components/podcast/ListenAnywhere';
 import PodcastEpisodeList from '@/components/podcast/PodcastEpisodeList';
 import { siteConfig } from '@/constants/config';
@@ -8,12 +7,14 @@ import { getUser } from '@/lib/hashnode';
 import { getEpisodes, getShow } from '@/lib/transistor';
 import { openGraph } from '@/utils/og';
 
+import { metadata as rootMetadata } from '../metadata';
+
 const url = `${siteConfig.url}/podcast`;
 
 export async function generateMetadata(): Promise<Metadata> {
   const show = await getShow();
 
-  const title = show.attributes.title || `${siteConfig.title} Podcast`;
+  const title = `${show.attributes.title || `${siteConfig.title} Podcast`} | ${siteConfig.title}`;
   const description = show.attributes.description;
   const ogImage = openGraph({
     title,

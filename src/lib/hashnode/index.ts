@@ -295,7 +295,7 @@ export const getPosts = async ({
     PostsDocument,
     {
       host: HASHNODE_HOST,
-      first: first && first > 0 ? (first > 20 ? 20 : first) : 10,
+      first: first && first > 0 ? (first > 20 ? 20 : first) : 20,
       after,
     },
   );
@@ -361,7 +361,7 @@ export const getPostsByTag = async ({
   >(PostsByTagDocument, {
     host: HASHNODE_HOST,
     tagSlug,
-    first: first && first > 0 ? (first > 20 ? 20 : first) : 10,
+    first: first && first > 0 ? (first > 20 ? 20 : first) : 20,
     after,
   });
 
@@ -396,7 +396,7 @@ export const getPostsBySeries = async ({
   >(PostsBySeriesDocument, {
     host: HASHNODE_HOST,
     seriesSlug,
-    first: first && first > 0 ? (first > 20 ? 20 : first) : 10,
+    first: first && first > 0 ? (first > 20 ? 20 : first) : 20,
     after,
   });
 

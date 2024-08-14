@@ -1,0 +1,193 @@
+@layer base {
+  .markdown,
+  .html {
+    @apply text-lg text-gray-700;
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply mb-6 mt-12 font-bold tracking-tight text-gray-900;
+
+      .hash-link {
+        @apply select-none pl-1.5 opacity-0 transition-opacity before:content-['#'] hover:opacity-100;
+      }
+    }
+
+    h2 {
+      @apply text-xl sm:text-2xl;
+    }
+
+    h3 {
+      @apply text-lg sm:text-xl;
+    }
+
+    h4 {
+      @apply text-lg italic sm:text-xl;
+    }
+
+    h5 {
+      @apply text-base sm:text-lg;
+    }
+
+    h6 {
+      @apply text-base italic sm:text-lg;
+    }
+
+    p,
+    ol,
+    ul {
+      @apply my-6 text-base leading-7 sm:text-lg sm:leading-8;
+    }
+
+    ol,
+    ul {
+      @apply ml-8 list-outside space-y-2;
+    }
+
+    ol {
+      @apply list-decimal;
+    }
+
+    ul {
+      @apply list-disc;
+    }
+
+    li > p:only-child {
+      @apply my-0;
+    }
+
+    pre {
+      @apply my-6 overflow-x-auto rounded-xl bg-gray-50 p-4 text-xs sm:text-sm;
+    }
+
+    blockquote {
+      @apply my-16 border-l border-cornflower-blue-600 py-4 pl-8;
+
+      p:only-child,
+      p:not(:last-child) {
+        @apply m-0 text-2xl font-semibold text-gray-900 sm:text-3xl;
+      }
+
+      p:last-child:not(:only-child) {
+        @apply italic text-gray-500;
+      }
+    }
+
+    table {
+      @apply my-6 w-full border-collapse text-sm sm:text-base;
+
+      th {
+        @apply bg-gray-50 p-2 text-left font-semibold text-gray-900;
+      }
+
+      td {
+        @apply border-t border-gray-300 p-2;
+      }
+    }
+
+    hr {
+      @apply my-8 border-gray-900/5;
+    }
+
+    ::-webkit-scrollbar {
+      @apply max-h-2;
+    }
+
+    ::-webkit-scrollbar-track {
+      @apply rounded-b-full bg-cornflower-blue-50;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      @apply rounded-b-full bg-cornflower-blue-200;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      @apply bg-cornflower-blue-300;
+    }
+
+    h2:first-child {
+      @apply mt-0;
+    }
+
+    :last-child {
+      @apply mb-0;
+    }
+  }
+
+  .about {
+    @apply text-base;
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply mb-4 mt-8 text-base;
+    }
+
+    ol,
+    ul {
+      @apply m-0 text-base;
+    }
+
+    ol,
+    ul {
+      @apply list-none space-y-2;
+    }
+  }
+
+  .static-page {
+    p {
+      @apply my-8 text-xl font-medium leading-8 sm:text-2xl sm:leading-9;
+    }
+
+    h2 ~ p,
+    li p {
+      @apply my-6 text-base font-normal leading-7 sm:text-lg sm:leading-8;
+    }
+  }
+
+  .compare-page {
+    @apply mt-12 text-center;
+
+    h2 {
+      @apply mx-auto mb-8 mt-32 max-w-prose text-balance text-4xl font-extrabold sm:mt-48 sm:text-5xl;
+    }
+
+    p {
+      @apply mx-auto max-w-prose text-balance;
+    }
+
+    ul {
+      @apply m-0 mx-auto mt-10 grid max-w-xl grid-cols-1 gap-10 sm:mt-16 lg:max-w-none lg:grid-cols-3;
+
+      > li {
+        @apply m-0 flex flex-col lg:text-left;
+
+        > strong:first-of-type {
+          @apply text-lg font-bold text-gray-900;
+        }
+      }
+
+      > li > p {
+        @apply mb-0 mt-1 w-full text-pretty text-base leading-7 text-gray-600;
+      }
+    }
+  }
+
+  audio::-webkit-media-controls-panel {
+    @apply bg-marian-blue-50;
+  }
+
+  audio::-webkit-media-controls-play-button {
+    @apply text-cornflower-blue-600;
+  }
+}
+.highlight-text {
+  @apply text-cornflower-blue-600;
+}
+.highlight-text.break {
+  @apply text-cornflower-blue-600;
+  display: block;
+}
